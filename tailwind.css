@@ -1264,6 +1264,10 @@ html {
   z-index: 50;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1320,6 +1324,18 @@ html {
 
 .h-10 {
   height: 2.5rem;
+}
+
+.h-36 {
+  height: 9rem;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
+.h-56 {
+  height: 14rem;
 }
 
 .h-auto {
