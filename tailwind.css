@@ -1533,6 +1533,10 @@ html {
   border-top-width: 2px;
 }
 
+.border-b {
+  border-bottom-width: 1px;
+}
+
 .border-transparent {
   border-color: transparent;
 }
@@ -1540,6 +1544,11 @@ html {
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgba(245, 245, 245, var(--tw-border-opacity));
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgba(212, 212, 212, var(--tw-border-opacity));
 }
 
 .bg-transparent {
@@ -1554,6 +1563,11 @@ html {
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+}
+
+.bg-red-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(136, 19, 55, var(--tw-bg-opacity));
 }
 
 .bg-ugblue {
