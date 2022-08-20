@@ -1,923 +1,576 @@
 <!doctype html>
 <html data-theme="corporate">
-
-<head>
-	<!-- ... -->
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
-		rel="stylesheet">
-	<link href="//fonts.cdnfonts.com/css/dinpro-regular" rel="stylesheet">
-	<link href="/tailwind.css" rel="stylesheet">
-</head>
-
-<body class="font-dinpro">
-
-	<!-- Menu -->
-	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-	<div
-		class="sticky top-0 z-50 w-full px-5 text-gray-700 bg-white shadow-md dark-mode:text-gray-200 dark-mode:bg-gray-800">
-		<div x-data="{ open: false }"
-			class="flex flex-col mx-auto max-w-screen-xl md:items-center md:justify-between md:flex-row ">
-			<div class="flex flex-row items-center justify-between p-4">
-				<img src="urc-logo.svg" class="hidden h-10 pr-2 lg:block">
-				<img src="smart-city-logo-2.svg" class="hidden h-10 pr-4 lg:block">
-				<a href="#"
-					class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Муниципальный
-					саммит </a>
-				<button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
-					@click="open = !open">
-					<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-						<path x-show="!open" fill-rule="evenodd"
-							d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+			rel="stylesheet">
+			<link href="//fonts.cdnfonts.com/css/dinpro-regular" rel="stylesheet">
+			<link href="/tailwind.css" rel="stylesheet">
+		</head>
+		<body class="font-dinpro">
+			<!-- Menu -->
+			<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+			<div
+				class="sticky top-0 z-50 w-full px-5 text-gray-700 bg-white shadow-md dark-mode:text-gray-200 dark-mode:bg-gray-800">
+				<div x-data="{ open: false }"
+					class="flex flex-col mx-auto max-w-screen-xl md:items-center md:justify-between md:flex-row ">
+					<div class="flex flex-row items-center justify-between p-4">
+						<img src="fg-logo.png" class="hidden h-10 pr-4 lg:block">
+						<img src="urc-logo.svg" class="hidden h-10 pr-2 lg:block">
+						<a href="#"
+						class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Собрание СРГ</a>
+						<button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+						@click="open = !open">
+						<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+							<path x-show="!open" fill-rule="evenodd"
+								d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
 							clip-rule="evenodd"></path>
-						<path x-show="open" fill-rule="evenodd"
-							d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+							<path x-show="open" fill-rule="evenodd"
+								d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
 							clip-rule="evenodd"></path>
-					</svg>
-				</button>
-			</div>
-			<nav :class="{'flex': open, 'hidden': !open}"
-				class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
-				<a class="px-3 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-					target="_blank" href="https://forms.gle/B29rpmw7apmJVu59A">Регистрация</a>
-				<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-					href="#organizers">Организаторы</a>
-				<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-					href="#schedule">Программа</a>
-				<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-					href="#hotel">Проживание</a>
-				<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-					href="#contacts">Контакты</a>
-
-				<a class="md:pl-10" target="_blank" href="https://visittyumen.ru"><img class="h-10"
+						</svg>
+						</button>
+					</div>
+					<nav :class="{'flex': open, 'hidden': !open}"
+						class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+						<a class="px-3 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						target="_blank" href="https://forms.gle/B29rpmw7apmJVu59A">Регистрация</a>
+						<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="#organizers">Организаторы</a>
+						<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="#schedule">Программа</a>
+						<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="#hotel">Проживание</a>
+						<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="#contacts">Контакты</a>
+						<a class="md:pl-10" target="_blank" href="https://visittyumen.ru"><img class="h-10"
 						src="visittyumen.svg"></a>
-			</nav>
-		</div>
-	</div>
-	<!-- End Menu -->
-
-	<!-- Hero -->
-	<div class="min-h-full hero bg-base-200" style="background-image: url('bg.jpg');">
-		<div class="hero-overlay bg-ugblue bg-opacity-90"></div>
-		<div class="flex-col py-10 lg:py-20 hero-content lg:flex-row-reverse">
-			<div class="flex content-center justify-center w-2/5 space-x-2">
-				<div class="w-1/3 h-auto m-auto">
-					<img src="urc-logo.svg">
-				</div>
-				<div class="w-2/3 h-full m-auto">
-					<img src="smart-city-logo-white.svg">
+					</nav>
 				</div>
 			</div>
-			<!-- <img src="hero-pht.jpg" class="max-w-sm rounded-lg shadow-2xl"> -->
-			<div class="px-5">
-				<div class="mb-2 text-2xl text-gray-300">
-					Муниципальный саммит
-				</div>
-				<h1 class="mb-5 text-3xl font-bold text-white lg:text-5xl">
-					ГОРОДА РОССИИ: <br>ОН&#8209;ЛАЙН И&nbsp;ОФФ&#8209;ЛАЙН ТРАНСФОРМАЦИЯ
-					И&nbsp;ПЕРСПЕКТИВЫ
-				</h1>
-				<div class="mb-5 text-3xl font-bold text-yellow-100">
-					22&nbsp;октября 2021&nbsp;года // Тюмень
-				</div>
-				<a href="https://forms.gle/B29rpmw7apmJVu59A" target="_blank"
-					class="border-transparent btn bg-ugred">Зарегистрироваться</a>
-			</div>
-		</div>
-	</div>
-	<!-- End  Hero-->
-
-
-	<!-- COVID notice -->
-	<div class="py-6 bg-red-900">
-		<div class="px-5 mx-auto text-white text-md max-w-screen-xl">
-			В целях личной безопасности для участия в Саммите необходимо будет предоставить отрицательный
-			результат
-			ПЦР-теста на COVID-19, сделанный не ранее 72 часов до начала мероприятия или сертификат
-			вакцинации от
-			COVID-19.
-			Сертификат вакцинации предоставляемый на сайте <a class="border-b border-gray-300"
-				href="https://www.gosuslugi.ru/landing/vaccination?utm_source=main&utm_medium=banner&utm_campaign=vaccination">Госуслуги</a>
-			или результат теста просим в обязательном
-			порядке направлять на адрес электронной почты info@urc.ru. Не забудьте взять с собой указанные
-			документы
-			на Саммит, их потребуют предъявить во время регистрации участников.
-
-		</div>
-	</div>
-	<!-- End COVID notice -->
-
-
-	<!-- Partners -->
-	<div class="py-10 mx-auto text-sm text-center max-w-screen-xl">
-		<div class="text-3xl font-bold text-center">Организаторы</div>
-		<div class="m-4 lg:flex space-x-4">
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block h-56 pb-2" src="partners/minstroy.png">
-				<p>Минстрой РФ</p>
-			</div>
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block h-56 pb-2" src="partners/tiymen.png">
-				<p>Город Тюмень</p>
-			</div>
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block h-56 pb-2" src="partners/urc.svg">
-				<p>Союз российских городов</p>
-			</div>
-		</div>
-
-		<div class="text-3xl font-bold text-center">Генеральные партнеры</div>
-		<div class="m-4 lg:flex space-x-4">
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block h-48 pb-2" src="partners/nzhk.svg">
-				<p>АНП "Национальный Жилищный Конгресс"</p>
-			</div>
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block h-48 pb-2" src="partners/innovatika.png">
-				<p>Консалтинговая компания Инноватика</p>
-			</div>
-		</div>
-
-		<div class="text-3xl font-bold text-center">Партнеры</div>
-		<div class="m-4 lg:flex space-x-4">
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block pb-2 h-36" src="partners/varmsu.jpeg">
-				<p>Всероссийская ассоциация развития местного самоуправления</p>
-			</div>
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block pb-2 h-36" src="partners/advg.jpeg">
-				<p>Ассоциация сибирскиx и Дальневосточных городов</p>
-			</div>
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block pb-2 h-36" src="partners/agp.png">
-				<p>Ассоциация городов Поволжья</p>
-			</div>
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block pb-2 h-36" src="partners/gcszr.jpg">
-				<p>Союз городов центра и&nbsp;северо-запада России</p>
-			</div>
-			<div
-				class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
-				<img class="block pb-2 h-36" src="partners/gu.jpeg">
-
-			</div>
-		</div>
-	</div>
-
-
-
-	</div>
-	</div>
-	<!-- End Partners -->
-
-	<!-- Org -->
-	<div class="py-5 mx-5">
-		<div id="organizers" class="pb-10 text-3xl font-bold text-center lg:text-5xl">Организационный коммитет
-		</div>
-		<div class="p-10 mx-auto mb-5 card lg:card-side bg-uggray max-w-screen-xl">
-			<div>
-				<img class="block h-56 m-auto mask mask-circle" src="people/mazur.jpeg">
-			</div>
-			<div class="card-body">
-				<div class="text-2xl text-white">Председатель</div>
-				<div class="pb-3 text-4xl font-bold text-white">Владимир Мазур</div>
-				<p class="text-white">Заместитель начальника Управления Президента РФ по
-					внутренней
-					политике</p>
-			</div>
-		</div>
-		<div class="p-10 mx-auto mb-5 card lg:card-side bg-uggray max-w-screen-xl">
-			<div>
-				<img class="block h-56 m-auto mask mask-circle" src="people/egorov.jpg">
-			</div>
-			<div class="card-body">
-				<div class="text-2xl text-white">Сопредседатель</div>
-				<div class="pb-3 text-4xl font-bold text-white">Максим Егоров</div>
-				<p class="text-white">Заместитель министра жилищно-коммунального хозяйства РФ</p>
-			</div>
-		</div>
-
-		<div class="p-10 mx-auto mb-5 card lg:card-side bg-uggray max-w-screen-xl">
-			<div>
-				<img class="block h-56 m-auto mask mask-circle" src="people/kuharuk.jpeg">
-			</div>
-			<div class="card-body">
-				<div class="text-2xl text-white">Сопредседатель</div>
-				<div class="pb-3 text-4xl font-bold text-white">Руслан Кухарук</div>
-				<p class="text-white">Президент Союза российских городов, Глава города Тюмени</p>
-			</div>
-		</div>
-
-	</div>
-
-
-
-	</div>
-	<!-- End Org -->
-
-	<!-- Program -->
-
-	<div class="py-5 mx-5">
-		<div class="pb-5 text-5xl font-bold text-center" id="schedule">Регламент Саммита</div>
-		<div class="pb-5 overflow-x-auto lg:text-xl">
-			<div class="pb-5 text-center">Место проведения: Тюменский ТЕХНОПАРК<br>
-				Адрес: г. Тюмень, ул. Республики, 142</div>
-			<table class="table w-full table-zebra">
-				<tbody>
-					<tr>
-						<td class="text-right">9:00-9:30</td>
-						<td class="font-bold">Регистрация</td>
-					</tr>
-					<tr>
-						<td class="text-right">9:30-10:30</td>
-						<td class="font-bold">Открытие выставки «Умные технологии»</td>
-					</tr>
-					<tr>
-						<td class="text-right">10:30-13:00</td>
-						<td class="font-bold">Пленарная сессия</td>
-					</tr>
-					<tr>
-						<td class="text-right">13:00-13:30</td>
-						<td class="font-bold">Обед</td>
-					</tr>
-					<tr>
-						<td class="text-right">13:30-14:00</td>
-						<td class="font-bold">Шоу-презентация компаний выставки «Умные
-							технологии»</td>
-					</tr>
-					<tr>
-						<td class="text-right">14:00-16:00</td>
-						<td>
-							<p class="pb-2 font-bold">Стратегические сессии</p>
-							<ul class="list-disc list-inside">
-								<li>Умный городской транспорт</li>
-								<li>Умное ЖКX</li>
-								<li>Туризм и сервис</li>
-								<li>Цифровое инновационное управление городом
-								</li>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td class="text-right">16:00-18:30</td>
-						<td class="font-bold">Посещение инновационных и культурных объектов
-							города
-							Тюмени
-						</td>
-					</tr>
-					<tr>
-						<td class="text-right">19:00-21:00</td>
-						<td class="font-bold">Прием Главы города Тюмени
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div class="flex flex-col items-center justify-center">
-			<a href="schedule.pdf" class="text-xl border-transparent btn bg-ugred place-self-center">Скачать
-				программу
-			</a>
-		</div>
-	</div>
-	<!-- End  Program-->
-	<div class="divider"></div>
-
-	<!-- Session 1-->
-	<div class="min-h-full px-5 pt-10 mt-10 lg:pt-20 bg-gradient-to-b from-white to-yellow-200">
-		<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
-			<div class="lg:w-2/5">
-				<p class="mb-5 text-3xl font-bold lg:text-6xl">
-					Пленарная сессия
-				</p>
-				<p class="mb-5 text-xl text-gray-500 lg:text-3xl">
-					Модераторы
-				</p>
-				<div class="flex content-center pt-4 space-x-4">
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/kuharuk.jpeg
-								 ">
-						<p class="font-bold uppercase">Руслан Кухарук</p>
-						<p class="text-sm">Президент Союза российских городов,
-							Глава города Тюмени
-						</p>
+			<!-- End Menu -->
+			<!-- Hero -->
+			<div class="min-h-full hero" style="background-image: url('bg.jpg');">
+				<div class="hero-overlay filter grayscale bg-white bg-opacity-80"></div>
+				<div class="flex-col py-10 lg:py-20 hero-content lg:flex-row-reverse">
+					<div class="flex content-center justify-center w-2/5 space-x-2">
+						<div class="w-1/3 h-auto m-auto">
+							<img src="urc-logo.svg">
+						</div>
+						<div class="w-2/3 h-full m-auto">
+							<img src="fg-logo.png">
+						</div>
 					</div>
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/maksimov.jpeg">
-						<p class="font-bold uppercase">
-							Андрей Максимов
-						</p>
-						<p class="text-sm">
-							Председатель Экспертного совета Союза российских городов,
-							Председатель Комиссии Общественной палаты РФ по территориальному
-							развитию и местному самоуправлению
-						</p>
+					<!-- <img src="hero-pht.jpg" class="max-w-sm rounded-lg shadow-2xl"> -->
+					<div class="px-5">
+						<div class="mb-2 text-2xl text-gray-600">
+							Собрание Союза российских городов
+						</div>
+						<h1 class="mb-5 text-3xl font-bold text-gray-800 lg:text-5xl">
+						МЕЖДУНАРОДНЫЙ ФОРУМ МЕСТНЫХ&nbsp;ВЛАСТЕЙ
+						«ГОРОДА НАСТОЯЩЕГО И&nbsp;БУДУЩЕГО»
+						</h1>
+						<div class="mb-5 text-3xl font-bold text-red-700">
+							19-21&nbsp;октября 2022&nbsp;года // Тюмень
+						</div>
+						<a href="https://forms.gle/B29rpmw7apmJVu59A" target="_blank"
+						class="border-transparent btn bg-ugred">Зарегистрироваться</a>
 					</div>
 				</div>
 			</div>
-			<div class="pt-5 m-auto lg:pt-0">
-				<h1
-					class="p-2 px-4 mb-5 text-2xl font-bold text-white bg-ugblue bg-opacity-90 rounded-md">
-					Приветствия
-				</h1>
-				<ul class="mb-5 list-disc list-inside lg:pl-3">
-					<li>ВЛАДИМИР ЯКУШЕВ, Полномочный представитель Президента России в Уральском
-						федеральном округе</li>
-					<li>АЛЕКСАНДР МООР, Губернатор Тюменской области</li>
-					<li>ВЛАДИМИР МАЗУР, Заместитель Начальника Управления Президента РФ по
-						внутренней</li>
-					политике
-				</ul>
-				<h1
-					class="p-2 px-4 mb-5 text-2xl font-bold text-white bg-uggray bg-opacity-90 rounded-md">
-					Доклады
-				</h1>
-				<ul class="mb-5 list-disc list-inside lg:pl-3">
-					<li>МАКСИМ ЕГОРОВ, Заместитель Министра ЖКХ РФ</li>
-					<li>ЕВГЕНИЯ ЧУХНОВА, Заместитель руководителя Ростуризма</li>
-					<li>КИРИЛЛ БОГДАНОВ, Заместитель Министра транспорта РФ</li>
-					<li>АНДРЕЙ ЧЕРНЕНКО, Заместитель министра цифрового развития, связи и массовых
-						коммуникаций РФ</li>
-					<li>РУСЛАН КУХАРУК, Глава города Тюмени, Президент Союза российских городов
-					</li>
-					<li>ИЛЬСУР МЕТШИН, Мэр города Казани, Председатель Ассоциации городов
-						Поволжья</li>
-					<li>СЕРГЕЙ ЕРЁМИН,Глава города Красноярска, Президент Ассоциации Сибирских и
-						Дальневосточных городов</li>
-					<li>АЛЕКСЕЙ ОРЛОВ, Глава Екатеринбурга, Президент Ассоциации «Города Урала»</li>
-					<li>НАТАЛЬЯ КОРЯГИНА, Глава ГО Шуя, Президент Союза городов Центра и
-						Северо-Запада
-						России</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- End Session 1-->
-
-	<!-- Session 2-->
-	<div class="min-h-full p-10 px-5 bg-gradient-to-b from-yellow-200 to-ugred">
-		<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
-			<div class="lg:w-2/5">
-				<p class="mb-5 text-3xl ">
-					Стратегическая сессия
-				</p>
-				<p class="mb-10 text-3xl font-bold lg:text-5xl">
-					«УМНЫЙ ГОРОДСКОЙ ТРАНСПОРТ»
-				</p>
-				<p class="mb-5 text-xl text-gray-500 lg:text-3xl">
-					Модераторы
-				</p>
-				<div class="flex content-center pt-4 space-x-4">
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/yankov.jpeg
-								 ">
-						<p class="font-bold uppercase">КИРИЛЛ ЯНКОВ</p>
-						<p class="text-sm">Заведующий лабораторией Института
-							народнохозяйственного прогнозирования РАН, член Комиссии
-							Госсовета РФ по направлению "Строительство, ЖКХ,
-							городская
-							среда"</p>
-					</div>
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/eremin.jpeg">
-						<p class="font-bold uppercase">СЕРГЕЙ ЕРЁМИН</p>
-						<p class="text-sm">
-							Президент Ассоциации Сибирских и Дальневосточных городов, Глава
-							города Красноярска
-						</p>
-					</div>
+			<!-- End  Hero-->
+			<!-- Announce -->
+			<div class="py-6">
+				<div class="px-5 mx-auto text-lg max-w-screen-xl">
+					В соответствии с Уставом Союза российских городов 20 октября 2022 г. в городе Тюмени состоится очередное Общее собрание Союза российских городов. <br><br>
+					Учитывая сложную международную обстановку, следуя задачам укрепления межгосударственных связей, основной задачей Собрания является выстраивание дополнительных контактов российских городов с коллегами из городов стран-членов СНГ, ЕЭАС, БРИКС и ШОС для осуществления взаимодействия в экономической, научно-технической, гуманитарной и иных сферах. <br><br>
+					В этой связи в рамках Собрания, состоится «Международный форум местных властей: «Города настоящего и будущего», Форум поддерживается Фондом поддержки публичной дипломатии имени А.М. Горчакова, Администрацией города Тюмени и Правительством Тюменской области.  <br><br>
+					Одним из приоритетов государственной национальной политики РФ – создание дополнительных социально-экономических, политических и культурных условий для улучшения социального благополучия граждан, обеспечения межнационального и межрелигиозного мира и согласия в РФ, прежде всего в регионах с высокой миграционной активностью, со сложным этническим и религиозным составом населения, а также на приграничных территориях РФ.<br><br>
+					Проведение Международного форума местных властей будет иметь большое значение для реализации и развития новых форматов взаимодействия России с государствами постсоветского пространства и иными государствами, а также способствовать выработке механизмов взаимодействия муниципалитетов в рамках разных форм сотрудничества с сопредельными регионами ЕЭАС и дружественными странами.<br><br>
+					Для участия в Общем собрании и Форуме приглашены представители российских городов, коллеги из стран-членов БРИКС, ШОС, СНГ ЕЭАС, председатели профильных Комитетов Совета Федерации и Государственной Думы Федерального собрания РФ, представители российских и зарубежных объединений муниципалитетов, ученые и эксперты, представители СМИ.<br><br>
+					Уважаемые коллеги, приглашаем Вас принять личное оффлайн участие в Общем собрании Союза российских городов и Международной форуме местных властей.
 				</div>
 			</div>
-			<div class="pt-5 lg:w-3/5 lg:pt-0">
-				<h1
-					class="p-2 px-4 mb-5 text-2xl font-bold text-black bg-white bg-opacity-50 rounded-md">
-					Концепция
-				</h1>
-				<p>
-					В эпоху активного внедрения и развития в нашей жизни цифровых решений нельзя не
-					говорить о транспорте в городах. «Умная» организация дорожного движения ведет
-					историю еще с 1970-х годов, сегодня оно подразумевает и видеофиксацию нарушений
-					ДТП, и «умный» анализ ДТП с планированием мер по их предотвращению, и управление
-					парковочным пространством. «Умный транспорт» становится частью экосистемы
-					технологий «умного города» и может решить проблемы, связанные с транспортной
-					доступностью горожан, обеспечить удобство и безопасность пассажирских перевозок.
-					«Умный» общественный транспорт – основа быстрого и комфортабельного перемещения
-					людей (конкурсные процедуры по отбору перевозчиков, «умные» контракты с
-					перевозчиками, «умная» диспетчеризация), при этом система должна быть
-					максимально дружественна и к пассажирам, не владеющим современными ИТ
-					технологиями.
-				</p>
-				<p class="pt-2">
-					Безусловно, бюджетные ограничения не позволяют в полной мере внедрять все
-					новинки цифровых решений, в том числе и на транспорте, но в то же время,
-					использование различных сервисов, позволит получить в дальнейшем не только
-					экономию бюджетных средств, но и иные эффекты, связанные с качественным
-					предоставлением транспортных услуг.
-				</p>
-				<p class="pt-2">
-					В рамках сессии предлагается обсудить следующие вопросы:
-				<ul class="list-disc list-inside">
-					<li>«Умная» транспортная система как основа инфраструктуры «умного города». С
-						чего начинать сейчас?</li>
-					<li>Для чего необходимы моделирование и прогнозирование транспортных потоков,
-						какие эффекты можно от этого получить?</li>
-					<li>Постепенное внедрение Mobility as a Service (MaaS) (Мобильность как услуга)
-						– прежде всего для территорий с низкой плотностью застройки, районов с
-						индивидуальной </li>жилищной застройкой.
-					<li>Какие сервисы и решения может включать в себя «умный транспорт»?</li>
-					<li>Какие эффекты может получить город от внедрения решений «умного транспорта»?
-					</li>
-				</ul>
-
-				</p>
-			</div>
-		</div>
-	</div>
-	<!-- End Session 2-->
-
-	<!-- Session 3-->
-	<div class="min-h-full p-10 px-5 text-white bg-gradient-to-b to-ugblue from-ugred">
-		<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
-			<div class="lg:w-2/5">
-				<p class="mb-5 text-3xl ">
-					Стратегическая сессия
-				</p>
-				<p class="mb-10 text-3xl font-bold lg:text-5xl">
-					«УМНОЕ ЖКХ»
-				</p>
-				<p class="mb-5 text-xl text-gray-100 lg:text-3xl">
-					Модераторы
-				</p>
-				<div class="flex content-center pt-4 space-x-4">
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/bulgakova.jpeg">
-						<p class="font-bold uppercase">Ирина Булгакова</p>
-						<p class="text-sm">Руководитель комиссии ЖКХ Общественного совета
-							Минстроя России, Руководитель экспертного совета при коммитете
-							по жилищной политике и ЖКХ Государственной Думы РФ
-						</p>
+			<!-- End Announce -->
+			<!-- Partners -->
+			<div class="py-10 mx-auto text-sm text-center max-w-screen-xl">
+				<div class="text-3xl font-bold text-center" id="organizers">Организаторы</div>
+				<div class="m-4 lg:flex space-x-4">
+					<div
+						class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
+						<img class="block h-56 pb-2" src="partners/urc.svg">
+						<p>Союз российскиx городов</p>
 					</div>
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/metshin.jpeg">
-						<p class="font-bold uppercase">Ильсур Метшин</p>
-						<p>Председатель Ассоциации городов Поволжья, Мэр города Казани
-						</p>
+					<div
+						class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
+						<img class="block pb-2" src="partners/fg-logo.png">
+						<p>Фонд Горчакова</p>
 					</div>
-				</div>
-			</div>
-			<div class="pt-5 lg:w-3/5 lg:pt-0">
-				<h1
-					class="p-2 px-4 mb-5 text-2xl font-bold text-black bg-white bg-opacity-50 rounded-md">
-					Концепция
-				</h1>
-				<p class="pb-2">
-					Преобразование городов неразрывно связано с внедрением цифровой трансформации
-					отраслей ЖКХ, систем по управлению городским хозяйством, коммунальной
-					инфраструктурой, в том числе внедрением онлайн сервисов для жителей,
-					установлением
-					интеллектуальных цифровых систем управления снабжения ресурсами – «умное
-					водоснабжение», «умное теплоснабжение», «умное электроснабжение».
-				</p>
-				<p class="pb-2">
-					Уровень цифровизации ЖКХ на прямую зависит от типа муниципального образования,
-					бюджетной обеспеченности, развитости инфраструктуры, потребительского спроса,
-					ограничений, стоящих перед городом, поэтому важно выбрать приоритетные
-					отраслевые направления для развития цифровой инфраструктуры с индивидуальным
-					подходом выбора технологических решений и проектов.
-				</p>
-				<p class="pb-2">
-					Мероприятия по направлениям развития «Умных ЖКХ» в основном проводятся на уровне
-					муниципального образования, поэтому очень важно применение проектов и решений с
-					короткими сроками реализации и окупаемости, проектов повышающих комфорт жизни
-					горожан за счет бесперебойности работы коммунальных систем и доступности
-					получения необходимых сервисов для обеспечения жизни в домах.
-				</p>
-				<p class="pb-2">
-					Планируется обсудить на сессии «Умное ЖКХ»:
-				<ul class="list-disc list-inside">
-					<li>автоматизированные системы управления наружным освещением;</li>
-					<li>автоматизированные системы учета энергоресурсов;</li>
-					<li>системы мониторинга за работой коммунальной техники;</li>
-					<li>системы автоматического управления территориально распределенными объектами
-						(водоканалами, теплосетями и т.д.);</li>
-					<li>датчики и умные устройства для оптимизации подачи энергоресурсов, контроля
-						систем основных городских коммуникаций и инфраструктурных узлов;</li>
-					<li>внедрение платформы обратной связи, повышение удобства для собственников
-						жилья
-						и потребителей услуг, доступность и прозрачность информации о ЖКУ,
-						реализация
-						электронных сервисов взаимодействия с гражданами по всем вопросам,
-						внедрение
-						механизма подтверждения решения проблемы потребителем;</li>
-					<li>внедрение информационной платформы учёта количества и качества, контроля
-						потребляемых коммунальных услуг, приборов мониторинга безопасности жилья
-						(утечки
-						газа, датчиков сейсмической устойчивости зданий и др.);</li>
-					<li>внедрение системы учёта технического состояния жилищного фонда,
-						синхронизация
-						сроков проведения текущего и капитального ремонта, переход от ремонта по
-						нормативам к ремонту (текущему и капитальному) по фактическому
-						техническому
-						состоянию;</li>
-				</ul>
-				</p>
-				<p class="pt-2">
-					Результатом работы Стратегической сессии должна стать выработка ключевых
-					направлений по реализации проекта «Умного ЖКХ», подготовка предложений по
-					устранению барьеров для ускоренного внедрения проектов и мер государственной
-					поддержки.
-
-
-				</p>
-			</div>
-		</div>
-	</div>
-	<!-- End Session 3-->
-
-	<!-- Session 4-->
-	<div class="min-h-full p-10 px-5 text-white bg-gradient-to-b to-uggray from-ugblue">
-		<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
-			<div class="lg:w-2/5">
-				<p class="mb-5 text-3xl ">
-					Стратегическая сессия
-				</p>
-				<p class="mb-10 text-3xl font-bold lg:text-5xl">
-					«ЦИФРОВОЕ ИННОВАЦИОННОЕ УПРАВЛЕНИЕ ГОРОДОМ»
-				</p>
-				<p class="mb-5 text-xl text-gray-100 lg:text-3xl">
-					Модераторы
-				</p>
-				<div class="flex content-center pt-4 space-x-4">
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/karavaeva.jpeg">
-						<p class="font-bold uppercase">Татьяна Караваева</p>
-						<p class="text-sm">вице-президент Центра стратегических разработок,
-							руководитель направления "Пространственное развитие"
-						</p>
+					<div
+						class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
+						<img class="block h-56 pb-2" src="partners/Coat_of_arms_of_Tyumen_Oblast.png">
+						<p>Правительство Тюменской области</p>
 					</div>
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/orlov.jpeg">
-						<p class="font-bold uppercase">Алексей Орлов</p>
-						<p>Президент Ассоциации Города Урала, Глава Екатеринбурга
-						</p>
+					<div
+						class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
+						<img class="block h-56 pb-2" src="partners/tiymen.png">
+						<p>Город Тюмень</p>
 					</div>
-				</div>
-			</div>
-			<div class="pt-5 lg:w-3/5 lg:pt-0">
-				<h1
-					class="p-2 px-4 mb-5 text-2xl font-bold text-black bg-white bg-opacity-50 rounded-md">
-					Концепция
-				</h1>
-				<p>
-					На каждом из уровней управления городом или субъектом Российской Федерации
-					происходит процесс цифровизации деятельности и внедрение всевозможных
-					мониторинговых систем. При этом прослеживается тренд на систематизацию данных на
-					федеральном и региональном уровне. Только федеральных действующих
-					геоинформационных систем насчитывается более 800. Зачастую потоки информации не
-					пересекаются, и собрать их в единую систему мониторинга и принятия решений
-					становится сложной задачей, особенно для органов местного самоуправления (ОМСУ).
-				</p>
-				<p class="pt-2">
-					В свою очередь цифровые системы помогают реализовывать полномочия органов власти
-					быстрее и эффективнее, но при этом возникает вопрос дальнейшего управления
-					данными и на основе анализа принятия решений, какие остаются за специалистами, а
-					где возможен подход с использованием автоматических алгоритмов.
-				</p>
-				<p class="pt-2">
-					В некоторых сферах достижение автоматической или полуавтоматической системы
-					принятия решений цифровыми системами достижимо, такими как управление
-					организацией дорожного движения, но все равно остается открытым вопрос о роли
-					специалистов, принимающих окончательное решение.
-				</p>
-				<p class="pt-2">
-					Помимо задач технологической реализации цифровых систем и объединения
-					информационных потоков возникает сложность финансового обеспечения таких
-					мероприятий, как на уровне реализации, так и при дальнейшем обслуживании.
-				</p>
-				<p class="pt-2">
-					Возникает необходимость рассмотрения значимых социально-экономических эффектов,
-					достигаемых за счет функционирования цифровых систем при управлении городом, что
-					является поводом для определения направления дальнейшей деятельности, на
-					максимизацию эффектов не только для ОМСУ, но и для населения и развития
-					территории в целом.
-
-				</p>
-				<p class="pt-2">
-					Вопросы для обсуждения:
-					<li>Как осуществить переход от цифровизации городского хозяйства и процессов
-						деятельности к внедрению системы принятия решений управления городом на
-						единой цифровой системе управления городом (ЦСУГ)? Какие технологические
-						и законодательные барьеры необходимо решить?</li>
-					<li>Какие возможности получат города от внедрения ЦСУГ? Как разграничить уровень
-						принятия решений на базе ЦСУГ и решений, принимаемых людьми;</li>
-					<li>Совместное использование данных разных уровней власти - региональные,
-						муниципальные, федеральные системы - как это объединять, когда есть
-						тренд
-						на сбор данных на уровне субъекта федерации или федеральном уровне?
-					</li>
-					<li>ИСОГД, ГИС, дэшборды губернатора и т.п. в системе принятия решений – какие
-						экономические и комплексные эффекты для города уже есть? Как
-						финансировать создание таких систем в условиях ограниченных бюджетов
-						городов?</li>
-				</p>
-			</div>
-		</div>
-	</div>
-	<!-- End Session 4-->
-
-	<!-- Session 5-->
-	<div class="min-h-full p-10 px-5 text-black bg-gradient-to-b from-uggray to-white">
-		<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
-			<div class="lg:w-2/5">
-				<p class="mb-5 text-3xl ">
-					Стратегическая сессия
-				</p>
-				<p class="mb-10 text-3xl font-bold lg:text-6xl">
-					«ТУРИЗМ И&nbsp;СЕРВИС»
-				</p>
-				<p class="mb-5 text-xl text-gray-900 lg:text-3xl">
-					Модераторы
-				</p>
-				<div class="flex content-center pt-4 space-x-4">
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/volkov.jpeg">
-						<p class="font-bold uppercase">АЛЕКСЕЙ ВОЛКОВ</p>
-						<p class="text-sm">Президент Общенационального союза индустрии
-							гостеприимства
-						</p>
-					</div>
-					<div class="w-1/2">
-						<img class="block mb-2 mask mask-circle" src="people/koragina.jpeg">
-						<p class="font-bold uppercase">НАТАЛЬЯ КОРЯГИНА</p>
-						<p class="text-sm">Президент Союза городов Центра и Северо-Запада
-							России, Глава ГО Шуя
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="pt-5 lg:w-3/5 lg:pt-0">
-				<h1
-					class="p-2 px-4 mb-5 text-2xl font-bold text-black bg-white bg-opacity-50 rounded-md">
-					Концепция
-				</h1>
-				<p>
-					Туристическая отрасль создает более 10% мирового ВВП и более 28%
-					мирового
-					экспорта услуг, а также обеспечивает каждое десятое рабочее место в
-					мире. Для
-					России развитие внутреннего и въездного туризма – один из приоритетов
-					государственной стратегии развития.
-				</p>
-				<p class="pt-2">
-					Модель объединённого развития туриндустрии в связке с современными
-					технологиями
-					является ключом к модернизации сферы обслуживания, куда входит вся
-					экосистема
-					гостеприимства: от сервисов размещения до сферы ЖКХ.
-
-				</p>
-				<p class="pt-2">
-					В наше время происходит новый этап технологической революции, который
-					изменяет
-					ход мирового экономического развития и внедрение современных технологий
-					позволит
-					изменить качественный подход к предоставлению туристических услуг.
-					Развитие
-					туризма начинается с развития инфраструктуры города и территорий.
-
-				</p>
-				<p class="pt-2">
-					Важно вовлечь муниципалитеты в развитие туризма и индустрии
-					гостеприимства через
-					цифровизацию отраслей, повышение квалификации, государственную поддержку
-					в виде
-					грантов и субсидий.
-
-				</p>
-				<p class="pt-2">
-					Консолидация отраслей в стране и в городе имеет одинаковый базис –
-					синхронизация
-					развития всех сфер с объединением усилий сообщества экспертов, бизнеса и
-					государства.
-
-
-				</p>
-				<p class="pt-2">
-					Вопросы для обсуждения:
-					<li>
-						Кадровый дефицит: отсутствие качественного профильного
-						образования или
-						нежелание работников учиться чему-то новому?
-					</li>
-					<li>
-						Какие туристические возможности получат города от внедрения
-						цифровых
-						систем. Лучшие городские и региональные практики в развитии
-						территорий.
-
-					</li>
-					<li>
-						Практика развития городов. MPA-модуль Сколково «100 городов»
-						(ВЭБ.РФ)
-
-					</li>
-					<li>
-						Развитие туризма в городах – лучшие практики.
-					</li>
-					<li>
-						Как заинтересовать и вовлечь муниципалитеты в развитие туризма?
-
-					</li>
-				</p>
-			</div>
-
-		</div>
-	</div>
-	<!-- End Session 5-->
-
-	<!-- Hotel / Fligths-->
-	<div id="hotel" class="min-h-screen hero" style="background-image: url(hotel.jpg);">
-		<div class="hero-overlay bg-opacity-80"></div>
-		<div class="py-10 text-center hero-content text-neutral-content">
-			<div class="max-w-screen-md">
-				<h3 class="mb-5 text-3xl font-bold lg:text-5xl">
-					Проживание и рекомендуемые рейсы
-				</h3>
-				<p class="mb-8 text-xl">
-					Для Вашего удобства Вы можете осуществить бронирование отеля <a
-						class="border-b border-gray-300"
-						href="https://www.hilton.ru/hotels/doubletree-by-hilton-hotel-tyumen/">Double&nbsp;Tree&nbsp;by&nbsp;Hilton&nbsp;Hotel&nbsp;Tyumen</a>
-					по специальным ценам. Забронировать отель и выбрать
-					категорию номера вы можете при <a class="border-b border-gray-300"
-						href="https://forms.gle/B29rpmw7apmJVu59A">регистрации</a> на саммит.
-				</p>
-				<p class="mb-8 lg:text-justify text-md">
-					Отель расположен в центре Тюмени, всего в 12 минутах ходьбы от живописной
-					набережной реки Тура, городской администрации и офисов нефтегазовых корпораций.
-					К услугам гостей комфортабельные номера с бесплатным Wi-Fi.
-					В отеле работает ресторан Emerald, где, наряду с завтраком «шведский стол»,
-					гостям предложат блюда русской и интернациональной кухни. Также в распоряжении
-					гостей лобби-бар, в котором подают кофе, десерты, разнообразные коктейли,
-					закуски и алкогольные напитки.
-
-				</p>
-				<h3 class="mt-5 mb-3 text-3xl font-bold">
-					Категории номеров и стоимость:</h3>
-				<div class="text-sm lg:text-lg">
-					<p>
-						Стандарт - 5 000 руб./номер/сутки с завтраком
-					</p>
-					<p>
-						Делюкс - 6 000 руб./номер/сутки с завтраком
-					</p>
-					<p>
-						Супериор - 6500 руб./номер/сутки с завтраком
-					</p>
-					<p>
-						Стандарт с доступом в лаунж - 7000 руб./номер/сутки с завтраком
-					</p>
-					<p>
-						Номер люкс - 8000 руб./номер/сутки с завтраком
-					</p>
-
-					<h3 class="mt-10 mb-5 text-3xl font-bold">
-						Рекомендуемые рейсы
-					</h3>
-					<p class="mb-2 text-lg font-bold">Москва – Тюмень, а/к «Аэрофлот»</p>
-					<table class="w-full border border-gray-500">
-						<tr>
-							<th>Дата</th>
-							<th>Рейс</th>
-							<th>Вылет</th>
-							<th>Прилет</th>
-						</tr>
-						<tr>
-							<td>21.10.2021</td>
-							<td>SU 1506</td>
-							<td>14:00</td>
-							<td>18:50</td>
-						</tr>
-					</table>
-					<p class="mt-8 mb-2 text-lg font-bold">Тюмень-Москва, а/к «Аэрофлот/Россия»</p>
-					<table class="w-full border border-gray-500">
-						<tr>
-							<th>Дата</th>
-							<th>Рейс</th>
-							<th>Вылет</th>
-							<th>Прилет</th>
-						</tr>
-						<tr>
-							<td>23.10.2021</td>
-							<td>SU 1509</td>
-							<td>07:25</td>
-							<td>08:20</td>
-						</tr>
-						<tr>
-							<td>23.10.2021</td>
-							<td>SU 6362</td>
-							<td>14:10</td>
-							<td>15:15</td>
-						</tr>
-					</table>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- End Hotel / Fligths -->
+</div>
+<!-- End Partners -->
+<!-- Program -->
+<div class="py-5 mx-5">
+	<div class="pb-10 text-5xl font-bold text-center" id="schedule">Программа</div>
+	<div class="pb-5 text-3xl font-bold text-center">19 октября (среда)</div>
+	<div class="pb-5 overflow-x-auto lg:text-xl">
+		<table class="table w-full table-zebra">
+			<tbody>
+				<tr>
+					<td class="text-right">Весь день</td>
+					<td class="font-bold">
+						Встреча в аэропорту Тюмени /
+						Трансфер в отель /
+					Заселение</td>
+				</tr>
+				<tr>
+					<td class="text-right">15:00-17:30</td>
+					<td class="font-bold">
+						ЭКСКУРСИЯ И ПОСЕЩЕНИЕ КУЛЬТУРНЫХ ОБЪЕКТОВ ГОРОДА <br><br>По предварительной записи посещение объектов городской среды <br>
+						<ul class="list-disc list-inside">
+							<li>Парки, скверы, жилые комплексы, транспортные развязки</li>
+							<li>ЕЦОР, водоканал (диспетчерская, очистные, насосная станция)</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td class="text-right">17:30-18:30</td>
+					<td class="font-bold">Заседание Правления</td>
+				</tr>
+				<tr>
+					<td class="text-right">19:00-21:00</td>
+					<td class="font-bold">Ужин</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="pb-5 text-3xl font-bold text-center">20 октября (четверг)</div>
+	<div class="pb-5 overflow-x-auto lg:text-xl">
+		<table class="table w-full table-zebra">
+			<tbody>
+				<tr>
+					<td class="text-right">08:20</td>
+					<td class="font-bold">Трансфер в Тюменский ТЕХНОПАРК</td>
+				</tr>
+				<tr>
+					<td class="text-right">08:30-09:00</td>
+					<td class="font-bold">Регистрация участников / Кофе-брейк</td>
+				</tr>
+				<tr>
+					<td class="text-right">09:00-09:30</td>
+					<td class="font-bold">СОБРАНИЕ СОЮЗА РОССИЙСКИХ ГОРОДОВ</td>
+				</tr>
+				<tr>
+					<td class="text-right">09:30-11:00</td>
+					<td class="font-bold">ПЛЕНАРНАЯ СЕССИЯ «ГОРОДА НАСТОЯЩЕГО И БУДУЩЕГО»</td>
+				</tr>
+				<tr>
+					<td class="text-right">11:00-12:00</td>
+					<td class="font-bold">ПОСЕЩЕНИЕ XV ТЮМЕНСКОЙ ЦИФРОВОЙ ВЫСТАВКИ <br>ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ «ИНФОТЕХ-2022»</td>
+				</tr>
+				<tr>
+					<td class="text-right">12:00-13:30</td>
+					<td class="font-bold">ТЕМАТИЧЕСКАЯ ЛИНИЯ: <br>«Цифровое инновационное управление городом. <br>Лучшие российские и международные практики». </td>
+				</tr>
+				<tr>
+					<td class="text-right">13:30-15:00</td>
+					<td class="font-bold">Обед </td>
+				</tr>
+				<tr>
+					<td class="text-right">15:00-17:00</td>
+					<td class="font-bold">
+						ТЕМАТИЧЕСКАЯ ЛИНИЯ:<br> 
+«Устойчивое функционирование и комплексная модернизация <br>коммунальной инфраструктуры. Российский и международный опыт»<br><br>
+ТЕМАТИЧЕСКАЯ ЛИНИЯ: <br>
+«Энергоэффективность, как прогрессивный механизм модернизации<br> и энергетической безопасности в городах»<br><br>
+ТЕМАТИЧЕСКАЯ ЛИНИЯ: <br>
+«Импортозамещение и параллельный импорт, <br>как стратегическая и тактическая <br>задачи обеспечения функционирования <br>и развития городского хозяйства. Российский и международный опыт»
 
-	<!-- Contacts -->
 
-	<div class="px-5 bg-gradient-to-b from-gray-200 to-transparent">
-		<div class="py-5 m-auto lg:py-16 max-w-screen-xl">
-			<div id="contacts" class="pb-5 text-3xl font-bold text-center text-gray-900 lg:text-6xl">
-				Контакты
-			</div>
-			<p class="text-lg text-center">
-				Дирекция Союза российских городов будет рада ответить на все Ваши вопросы
+					</td>
+				<tr>
+					<td class="text-right">17:00-17:30</td>
+					<td class="font-bold">
+						ЗАКЛЮЧИТЕЛЬНАЯ ПЛЕНАРНАЯ СЕССИЯ<br>
+                        Подведение итогов
+
+					</td>
+				</tr>
+				<tr>
+					<td class="text-right">17:30</td>
+					<td class="font-bold">Трансфер</td>
+				</tr>
+				<tr>
+					<td class="text-right">18:30-21:00</td>
+					<td class="font-bold">Прием Главы города и Губернатора области</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="pb-5 text-3xl font-bold text-center">21 октября (пятница)</div>
+	<div class="pb-5 overflow-x-auto lg:text-xl">
+		<table class="table w-full table-zebra">
+			<tbody>
+				<tr>
+					<td class="text-right"></td>
+					<td class="font-bold">Трансфер в аэропорт &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="flex flex-col items-center justify-center">
+		<a href="schedule.pdf" class="text-xl border-transparent btn bg-ugred place-self-center">Скачать
+			программу
+		</a>
+	</div>
+</div>
+<!-- End  Program-->
+<div class="divider"></div>
+<!-- Session 1-->
+<div class="min-h-full px-5 pt-10 mt-10 lg:pt-20 bg-gradient-to-b from-white to-yellow-200">
+	<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
+		<div class="lg:w-2/5">
+			<p class="mb-5 text-3xl">
+				Пленарная сессия
 			</p>
-			<p class="text-lg text-center">
-				Наш адрес для корреспонденции:
-				121099 Москва, Карманицкий пер., д. 10
+			<p class="mb-10 text-xl font-bold lg:text-2xl">
+				«ГОРОДА НАСТОЯЩЕГО И БУДУЩЕГО»
 			</p>
-			<div class="pt-10 pb-5 text-3xl text-center">Ответственные за организацию Саммита</div>
-			<div class="pt-5 grid md:grid-cols-3 grid-cols-1 gap-4">
-				<div class="text-center bg-white shadow card">
-					<figure class="px-10 pt-10">
-						<img src="people/spodnevskaya.jpg" class="mask mask-circle">
-					</figure>
-					<div class="card-body">
-						<h2 class="text-2xl text-grey-900 card-title">Анна
-							Сподневская<br>
-						</h2>
-						<p class="pb-5 text-lg text-gray-900">Менеджер департамента по
-							работе с участниками
-						</p>
-						<p class="pt-3 text-lg text-gray-700 border-t-2 border-gray-100">
-							7 929 608-8025<br>
-							info@urc.ru
-						</p>
-					</div>
+			<p class="mb-5 text-xl text-gray-500 lg:text-3xl">
+				Модератор
+			</p>
+			<div class="flex content-center pt-4 space-x-4">
+				<div class="w-1/2">
+					<img class="block mb-2 mask mask-circle" src="people/fadeev.jpg
+					">
+					<p class="font-bold uppercase">Фадеев Валерий Александрович</p>
+					<p class="text-sm">Советник Президента Российской Федерации, Председатель Совета при Президенте Российской Федерации по развитию гражданского общества и правам человека 
+					</p>
 				</div>
-				<div class="text-center bg-white shadow card">
-					<figure class="px-10 pt-10">
-						<img src="people/cepkova.jpg" class="mask mask-circle">
-					</figure>
-					<div class="card-body">
-						<h2 class="text-2xl text-grey-900 card-title">Светлана
-							Цепкова<br>
-						</h2>
-						<p class="pb-5 text-lg text-gray-900">Менеджер департамента по
-							работе с участниками
-						</p>
-						<p class="pt-3 text-lg text-gray-700 border-t-2 border-gray-100">
-							+7 925 331-8233<br>
-							info@urc.ru
-						</p>
-					</div>
+			</div>
+		</div>
+		<div class="pt-5 m-auto lg:pt-0">
+			<h1
+			class="p-2 px-4 mb-5 text-2xl font-bold text-white bg-uggray bg-opacity-90 rounded-md">
+			Доклады
+			</h1>
+			Следите за обновлениями
+		</div>
+	</div>
+</div>
+<!-- End Session 1-->
+<!-- Session 2-->
+<div class="min-h-full p-10 px-5 bg-gradient-to-b from-yellow-200 to-ugred">
+	<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
+		<div class="lg:w-2/5">
+			<p class="mb-5 text-3xl">
+				Тематическая линия
+			</p>
+			<p class="mb-10 text-xl font-bold lg:text-2xl">
+				«ЦИФРОВОЕ ИННОВАЦИОННОЕ УПРАВЛЕНИЕ ГОРОДОМ. ЛУЧШИЕ РОССИЙСКИЕ И&nbsp;МЕЖДУНАРОДНЫЕ МУНИЦИПАЛЬНЫЕ, РЕГИОНАЛЬНЫЕ, ФЕДЕРАЛЬНЫЕ ПРАКТИКИ»
+			</p>
+			<p class="mb-5 text-xl text-gray-500 lg:text-3xl">
+				Модератор
+			</p>
+			<div class="flex content-center pt-4 space-x-4">
+				<div class="w-1/2">
+					<img class="block mb-2 mask mask-circle" src="people/karavaeva.jpeg
+					">
+					<p class="font-bold uppercase">Караваева Татьяна Игоревна</p>
+					<p class="text-sm">вице-президент Центра стратегических разработок, руководитель направления «Пространственное развитие»</p>
 				</div>
-				<div class="text-center bg-white shadow card">
-					<figure class="px-10 pt-10">
-						<img src="people/gritsun.jpg" class="mask mask-circle">
-					</figure>
-					<div class="card-body">
-						<h2 class="text-2xl text-grey-900 card-title">Иван Грицун<br>
-						</h2>
-						<p class="pb-5 text-lg text-gray-900">Заместитель Генерального
-							директора<br>&nbsp;</p>
-						<p class="pt-3 text-lg text-gray-700 border-t-2 border-gray-100">
-							+7 925 507-0831<br>
-							info@urc.ru
-						</p>
-					</div>
+			</div>
+		</div>
+		<div class="pt-5 lg:w-3/5 lg:pt-0">
+			<h1
+			class="p-2 px-4 mb-5 text-2xl font-bold text-black bg-white bg-opacity-50 rounded-md">
+			Концепция
+			</h1>
+			<p>
+На каждом из уровней управления городом или субъектом Российской Федерации происходит процесс цифровизации деятельности и внедрение всевозможных мониторинговых систем. При этом прослеживается тренд на систематизацию данных на федеральном и региональном уровне. Только федеральных действующих геоинформационных систем насчитывается более 800. Зачастую потоки информации не пересекаются, и собрать их в единую систему мониторинга и принятия решений становится сложной задачей, особенно для органов местного самоуправления (ОМСУ). 
+			</p>
+			<p class="pt-2">
+В свою очередь цифровые системы помогают реализовывать полномочия органов власти быстрее и эффективнее, но при этом возникает вопрос дальнейшего управления данными и на основе анализа принятия решений, какие остаются за специалистами, а где возможен подход с использованием автоматических алгоритмов. В некоторых сферах достижение автоматической или полуавтоматической системы принятия решений цифровыми системами достижимо, такими как управление организацией дорожного движения, но все равно остается открытым вопрос о роли специалистов, принимающих окончательное решение. 
+			</p>
+			<p class="pt-2">
+Помимо задач технологической реализации цифровых систем и объединения информационных потоков возникает сложность финансового обеспечения таких мероприятий, как на уровне реализации, так и при дальнейшем обслуживании. Возникает необходимость рассмотрения значимых социально-экономических эффектов, достигаемых за счет функционирования цифровых систем при управлении городом, что является поводом для определения направления дальнейшей деятельности, на максимизацию эффектов не только для ОМСУ, но и для населения и развития территории в целом.
+
+			</p>
+		</div>
+	</div>
+</div>
+<!-- End Session 2-->
+<!-- Session 3-->
+<div class="min-h-full p-10 px-5 text-white bg-gradient-to-b to-ugblue from-ugred">
+	<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
+		<div class="lg:w-2/5">
+			<p class="mb-5 text-3xl ">
+				Тематическая линия
+			</p>
+			<p class="mb-10 text-xl font-bold lg:text-2xl">
+				«УСТОЙЧИВОЕ ФУНКЦИОНИРОВАНИЕ И&nbsp;КОМПЛЕКСНАЯ МОДЕРНИЗАЦИЯ КОММУНАЛЬНОЙ ИНФРАСТРУКТУРЫ. МЕЖДУНАРОДНЫЙ ОПЫТ»
+			</p>
+			<p class="mb-5 text-xl text-gray-100 lg:text-3xl">
+				Модератор
+			</p>
+			<div class="flex content-center pt-4 space-x-4">
+				<div class="w-1/2">
+					<img class="block mb-2 mask mask-circle" src="people/bulgakova.jpeg">
+					<p class="font-bold uppercase">Булгакова Ирина Александровна</p>
+					<p class="text-sm">Председатель Экспертного совета по жилищной политике и жилищно-коммунальному хозяйству при Комитете Государственной Думы по строительству и жилищно-коммунальному хозяйству, Руководитель комиссии по жилищно-коммунальному хозяйству Общественного совета Минстроя России, Исполнительный директор Ассоциации «Совет ЖКХ»
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="pt-5 lg:w-3/5 lg:pt-0">
+			<h1
+			class="p-2 px-4 mb-5 text-2xl font-bold text-black bg-white bg-opacity-50 rounded-md">
+			Концепция
+			</h1>
+
+			<p class="pt-2">
+			Преобразование городов неразрывно связано с внедрением цифровой трансформации отраслей ЖКХ, систем по управлению городским хозяйством, коммунальной инфраструктурой, в том числе внедрением онлайн сервисов для жителей, установлением интеллектуальных цифровых систем управления снабжения ресурсами – «умное водоснабжение», «умное теплоснабжение», «умное электроснабжение».
+					</p>
+			<p class="pt-2">
+Уровень цифровизации ЖКХ на прямую зависит от типа муниципального образования, бюджетной обеспеченности, развитости инфраструктуры, потребительского спроса, ограничений, стоящих перед городом, поэтому важно выбрать приоритетные отраслевые направления для развития цифровой инфраструктуры с индивидуальным подходом выбора технологических решений и проектов.
+Мероприятия по направлениям развития «устойчивого функционирования и комплексной модернизации коммунальной инфраструктуры» в основном проводятся на уровне муниципального образования, поэтому очень важно применение проектов и решений с короткими сроками реализации и окупаемости, проектов повышающих комфорт жизни горожан за счет бесперебойности работы коммунальных систем и доступности получения необходимых сервисов для обеспечения жизни в домах.
+					</p>
+			<p class="pt-2">
+Планируется обсудить в тематической линии:
+			<ul class="mb-5 list-disc list-inside lg:pl-3">
+<li>автоматизированные системы управления наружным освещением;</li>
+<li>автоматизированные системы учета энергоресурсов;</li>
+<li>системы мониторинга за работой коммунальной техники;</li>
+<li>системы автоматического управления территориально распределенными объектами (водоканалами, теплосетями и т.д.);</li>
+<li>датчики и умные устройства для оптимизации подачи энергоресурсов, контроля систем основных городских коммуникаций и инфраструктурных узлов;</li>
+<li>внедрение платформы обратной связи, повышение удобства для собственников жилья и потребителей услуг, доступность и прозрачность информации о ЖКУ, реализация электронных сервисов взаимодействия с гражданами по всем вопросам, внедрение механизма подтверждения решения проблемы потребителем;</li>
+<li>внедрение информационной платформы учёта количества и качества, контроля потребляемых коммунальных услуг, приборов мониторинга безопасности жилья (утечки газа, датчиков сейсмической устойчивости зданий и др.);</li>
+<li>внедрение системы учёта технического состояния жилищного фонда, синхронизация сроков проведения текущего и капитального ремонта, переход от ремонта по нормативам к ремонту (текущему и капитальному) по фактическому техническому состоянию;</li>
+</ul>
+					</p>
+			<p class="pt-2">
+Результатом работы тематической линии должна стать выработка ключевых направлений по реализации проекта «Умного ЖКХ», подготовка предложений по устранению барьеров для ускоренного внедрения проектов и мер государственной поддержки.
+					</p>
+
+		</div>
+	</div>
+</div>
+<!-- End Session 3-->
+<!-- Session 4-->
+<div class="min-h-full p-10 px-5 text-white bg-gradient-to-b to-uggray from-ugblue">
+	<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
+		<div class="lg:w-2/5">
+			<p class="mb-5 text-3xl ">
+				Тематическая линия
+			</p>
+			<p class="mb-10 text-xl font-bold lg:text-2xl">
+				«ЭНЕРГОЭФФЕКТИВНОСТЬ, КАК ПРОГРЕССИВНЫЙ МЕХАНИЗМ МОДЕРНИЗАЦИИ И ЭНЕРГЕТИЧЕСКОЙ БЕЗОПАСНОСТИ В ГОРОДАХ И НА ПРИГРАНИЧНЫХ ТЕРРИТОРИЯХ»
+			</p>
+			<p class="mb-5 text-xl text-gray-100 lg:text-2xl">
+				Модератор
+			</p>
+			<div class="flex content-center pt-4 space-x-4">
+				<div class="w-1/2">
+					<img class="block mb-2 mask mask-circle" src="people/gasho.jpg">
+					<p class="font-bold uppercase">Гашо Евгений Геннадьевич</p>
+					<p>Заведующий научно-исследовательской лабораторией методологических проблем энергосбережения, ФГБОУ ВО «Национальный исследовательский университет „МЭИ“, академик-секретарь секции энергетики Российской Инженерной Академии
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="pt-5 lg:w-3/5 lg:pt-0">
+			<h1
+			class="p-2 px-4 mb-5 text-2xl font-bold text-black bg-white bg-opacity-50 rounded-md">
+			Концепция
+			</h1>
+			<p class="pt-2">
+			Изношенные и неэффективные (в результате постоянного "реформирования") инфраструктуры теплоэнергоснабжения городов и городских поселений являются серьезным тормозом активного жилищного строительства и промышленного развития территорий в целом.  Их успешная модернизация сдерживается комплексом проблем, количество которых не уменьшается, несмотря на внедряемую улучшенную систему регулирования и новые механизмы, повышающие эффективность и надежность теплоснабжения в российских городах и приграничных территориях. По понятным причинам, «проблемность» в отрасли особенно ярко проявила себя в моногородах при устранении предприятий, осуществляющих в том числе теплоснабжение городских объектов и жилья. 
+			</p>
+			<p class="pt-2">
+В предыдущие годы непоследовательная и несбалансированная государственная политика в теплоснабжении и энергосбережении не позволила выработать эффективные меры и инструменты решения задач развития городов, а в условиях «новых вызовов» повторение ошибок и отсутствие должного внимания к этим проблемам становится практически фатальным для устойчивого социально-экономического роста.
+			</p>
+			<p class="pt-2">
+С другой стороны, в городах все сильнее растет потребность в обеспечении технологической и экономической эффективности систем теплоэнергосбережения и все чаще появляются оригинальные самостоятельные решения, в том числе по повышению надежности и модернизации оборудования, снижению рисков аварийности, роста тарифов для населения.  Активно происходит обмен позитивным и негативным опытом, муниципалитеты чаще взаимодействуют между собой, особенно в условиях активного роста городских агломераций, позволяющих всем вместе противостоять современным вызовам. Однако, отдельные успешные примеры не слишком доступны для осмысления и анализа, и тем более тиражирования - каждый раз это требует отдельного анализа ситуации и комплексного инжиниринга. Простой пример - за истекшие 15 лет построено свыше 1,25 млрд м2 недвижимости, а расход тепла на отопление в централизованных системах ежегодно снижается на 1,3–1,7%.
+			</p>
+			<p class="pt-2">
+Правительство РФ также пытается доступными ресурсами купировать проблемы отрасли: по поручению Президента России разрабатывается новая госпрограмма «Энергосбережение и повышение энергетической эффективности» на период до 2035 года, где будет не лишним более четко определить приоритеты и предложить эффективные механизмы модернизации и повышения энергетической безопасности в изменившихся внешних и внутренних условиях Российской Федерации и национальной стратегической ориентации на собственные технологические решения.
+			</p>
+			<p class="pt-2">
+В рамках тематической линии и поставленной цели обсуждения предлагается участникам форума рассмотреть следующие группы вопросов:
+			<ul class="mb-5 list-disc list-inside lg:pl-3">
+<li>Ключевые особенности и структура потребления энергии в разных типологических группах - (мегаполисы, промузлы, приграничные, южные и приморские города).</li>
+<li>Фактическая рентабельность теплонабжения городов - балансы тепла и денег. Меры и механизмы выявления резервов повышения технической и финансовой эффективности.</li>
+<li>"Тупики" и ошибки государственной политики теплоснабжения. Новые вызовы и возможности действий городов, городских агломераций и регионов.</li>
+<li>Адекватные схемы теплоснабжения в сочетании с продуманным и комплексным теплоснабжением - ключевой путь успешной модернизации.</li>
+<li>Позитивный и негативный опыт разных городов и регионов.</li>
+<li>Предложения для разрабатываемой Правительством РФ государственной программы</li>
+</ul>
+			</p>
+
+		</div>
+	</div>
+</div>
+<!-- End Session 4-->
+<!-- Session 5-->
+<div class="min-h-full p-10 px-5 text-black bg-gradient-to-b from-uggray to-white">
+	<div class="flex flex-col mx-auto max-w-screen-xl lg:flex lg:flex-row lg:space-x-10">
+		<div class="lg:w-2/5">
+			<p class="mb-5 text-3xl ">
+				Тематическая линия
+			</p>
+			<p class="mb-10 text-xl font-bold lg:text-2xl">
+				«ИМПОРТОЗАМЕЩЕНИЕ И&nbsp;ПАРАЛЛЕЛЬНЫЙ ИМПОРТ, КАК&nbsp;СТРАТЕГИЧЕСКАЯ И&nbsp;ТАКТИЧЕСКАЯ ЗАДАЧИ ОБЕСПЕЧЕНИЯ ФУНКЦИОНИРОВАНИЯ И РАЗВИТИЯ ГОРОДСКОГО ХОЗЯЙСТВА. МЕЖДУНАРОДНЫЙ ОПЫТ»
+			</p>
+			<p class="mb-5 text-xl text-gray-900 lg:text-3xl">
+				Модератор
+			</p>
+			<div class="flex content-center pt-4 space-x-4">
+				<div class="w-1/2">
+					<img class="block mb-2 mask mask-circle" src="people/morozov.jpg">
+					<p class="font-bold uppercase">Морозов Сергей Иванович</p>
+					<p class="text-sm">Первый заместитель председателя Комитета Государственной Думы по региональной политике и местному самоуправлению, Координатор проекта «Единой России» по импортозамещению
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="pt-5 lg:w-3/5 lg:pt-0">
+			<h1
+			class="p-2 px-4 mb-5 text-2xl font-bold text-black bg-white bg-opacity-50 rounded-md">
+			Концепция
+			</h1>
+			<p class="pt-2">
+			Введение западными странами незаконных санкций отражается практически на всех отраслях народного хозяйства. В этих условиях особую актуальность приобретают вопросы организации параллельного импорта (как тактическая задача обеспечения фукционирования городского хозяйства) и импортозмещения (как стратегическая задача). От эффективности проведения стратегий импортозамещения на российских предприятиях, в частности на предприятиях строительства и ЖКХ, зависит качество произведенных ими инновационных товаров, а также конкурентоспобность их деятельности в целом. 
+			</p>
+			<p class="pt-2">
+С целью правового обеспечения организации параллельного импорта Минпромторгом РФ был выпущен Приказ от 19.04.2022 № 1532 "Об утверждении перечня товаров (групп товаров), в отношении которых не применяются положения подпункта 6 статьи 1359 и статьи 1487 Гражданского кодекса Российской Федерации при условии введения указанных товаров (групп товаров) в оборот за пределами территории Российской Федерации правообладателями (патентообладателями), а также с их согласия". Организация параллельного импорта позволит нивелировать проблемы текущей эксплуатации объектов городской инфраструктуры, а также реализовать начатые проекты ее модернизации. При осуществлении параллельного импорта особую роль играют дружественные страны, участвующие в организации цепочек поставки, а также оплаты товара.
+			</p>
+			<p class="pt-2">
+С целью реализации стратегии импортозамещения правительством дано поручение Минпромторгу и Минцифры создать цифровой сервис "Биржа импортозамещения". Он создан на электронной торговой площадке Газпромбанка (ГПБ) на базе Государственной информационной системы промышленности (ГИСП). С помощью него будет обеспечено прямое взаимодействие между российскими производственными компаниями и заказчиками. Система также снизит бюрократические и административные нагрузки на предприятия. 
+			</p>
+
+		</div>
+	</div>
+</div>
+<!-- End Session 5-->
+<!-- Hotel / Fligths-->
+<div id="hotel" class="hero" style="background-image: url(hotel.jpg);">
+	<div class="hero-overlay bg-opacity-80"></div>
+	<div class="py-10 text-center hero-content text-neutral-content">
+		<div class="max-w-screen-md">
+			<h3 class="mb-5 text-3xl font-bold lg:text-5xl">
+			Рекомендуемые рейсы
+			</h3>
+				<p class="mb-2 text-lg font-bold">Москва – Тюмень, а/к «Аэрофлот»</p>
+				<table class="w-full border border-gray-500">
+					<tr>
+						<th>Дата</th>
+						<th>Рейс</th>
+						<th>Вылет</th>
+						<th>Прилет</th>
+					</tr>
+					<tr>
+						<td>19.10.2022</td>
+						<td>SU 6361</td>
+						<td>8:25</td>
+						<td>13:10</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Hotel / Fligths -->
+<!-- Contacts -->
+<div class="px-5 bg-gradient-to-b from-gray-200 to-transparent">
+	<div class="py-5 m-auto lg:py-16 max-w-screen-xl">
+		<div id="contacts" class="pb-5 text-3xl font-bold text-center text-gray-900 lg:text-6xl">
+			Контакты
+		</div>
+		<p class="text-lg text-center">
+			Дирекция Союза российских городов будет рада ответить на все Ваши вопросы
+		</p>
+		<p class="text-lg text-center">
+			Наш адрес для корреспонденции:
+			121099 Москва, Карманицкий пер., д. 10
+		</p>
+		<div class="pt-10 pb-5 text-3xl text-center">Ответственные за организацию Саммита</div>
+		<div class="pt-5 grid md:grid-cols-3 grid-cols-1 gap-4">
+			<div class="text-center bg-white shadow card">
+				<figure class="px-10 pt-10">
+					<img src="people/spodnevskaya.jpg" class="mask mask-circle">
+				</figure>
+				<div class="card-body">
+					<h2 class="text-2xl text-grey-900 card-title">Анна
+					Сподневская<br>
+					</h2>
+					<p class="pb-5 text-lg text-gray-900">Менеджер департамента по
+						работе с участниками
+					</p>
+					<p class="pt-3 text-lg text-gray-700 border-t-2 border-gray-100">
+						7 929 608-8025<br>
+						info@urc.ru
+					</p>
+				</div>
+			</div>
+			<div class="text-center bg-white shadow card">
+				<figure class="px-10 pt-10">
+					<img src="people/cepkova.jpg" class="mask mask-circle">
+				</figure>
+				<div class="card-body">
+					<h2 class="text-2xl text-grey-900 card-title">Светлана
+					Цепкова<br>
+					</h2>
+					<p class="pb-5 text-lg text-gray-900">Менеджер департамента по
+						работе с участниками
+					</p>
+					<p class="pt-3 text-lg text-gray-700 border-t-2 border-gray-100">
+						+7 925 331-8233<br>
+						info@urc.ru
+					</p>
+				</div>
+			</div>
+			<div class="text-center bg-white shadow card">
+				<figure class="px-10 pt-10">
+					<img src="people/gritsun.jpg" class="mask mask-circle">
+				</figure>
+				<div class="card-body">
+					<h2 class="text-2xl text-grey-900 card-title">Иван Грицун<br>
+					</h2>
+					<p class="pb-5 text-lg text-gray-900">Заместитель Генерального
+					директора<br>&nbsp;</p>
+					<p class="pt-3 text-lg text-gray-700 border-t-2 border-gray-100">
+						+7 925 507-0831<br>
+						info@urc.ru
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<!-- End Contacts -->
-
-	<!-- Footer -->
-	<footer class="p-4 footer bg-base-300 text-base-content footer-center">
-		<div>
-			<p>Муниципальный саммит
-				"Города России:
-				он‑лайн и офф‑лайн трансформация и перспективы"</p>
-		</div>
-	</footer>
-
-	<!-- End Footer -->
-
+</div>
+<!-- End Contacts -->
+<!-- Footer -->
+<footer class="p-4 footer bg-base-300 text-base-content footer-center">
+	<div>
+		<p>МЕЖДУНАРОДНЫЙ ФОРУМ МЕСТНЫХ ВЛАСТЕЙ 
+ «ГОРОДА НАСТОЯЩЕГО И БУДУЩЕГО»
+</p>
+	</div>
+</footer>
+<!-- End Footer -->
 </body>
-
 </html>

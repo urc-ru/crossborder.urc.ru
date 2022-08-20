@@ -1293,14 +1293,6 @@ html {
   margin-top: 0.5rem;
 }
 
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -1309,16 +1301,8 @@ html {
   margin-bottom: 0.5rem;
 }
 
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
 .mb-5 {
   margin-bottom: 1.25rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
 }
 
 .mb-10 {
@@ -1353,14 +1337,6 @@ html {
   height: 2.5rem;
 }
 
-.h-36 {
-  height: 9rem;
-}
-
-.h-48 {
-  height: 12rem;
-}
-
 .h-56 {
   height: 14rem;
 }
@@ -1375,10 +1351,6 @@ html {
 
 .min-h-full {
   min-height: 100%;
-}
-
-.min-h-screen {
-  min-height: 100vh;
 }
 
 .w-6 {
@@ -1561,10 +1533,6 @@ html {
   border-top-width: 2px;
 }
 
-.border-b {
-  border-bottom-width: 1px;
-}
-
 .border-transparent {
   border-color: transparent;
 }
@@ -1572,11 +1540,6 @@ html {
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgba(245, 245, 245, var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgba(212, 212, 212, var(--tw-border-opacity));
 }
 
 .border-gray-500 {
@@ -1598,16 +1561,6 @@ html {
   background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
 }
 
-.bg-red-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(136, 19, 55, var(--tw-bg-opacity));
-}
-
-.bg-ugblue {
-  --tw-bg-opacity: 1;
-  background-color: rgba(0, 117, 143, var(--tw-bg-opacity));
-}
-
 .bg-uggray {
   --tw-bg-opacity: 1;
   background-color: rgba(70, 80, 91, var(--tw-bg-opacity));
@@ -1616,11 +1569,6 @@ html {
 .bg-ugred {
   --tw-bg-opacity: 1;
   background-color: rgba(230, 45, 38, var(--tw-bg-opacity));
-}
-
-.bg-base-200 {
-  --tw-bg-opacity: 1;
-  background-color: hsla(var(--b2) / var(--tw-bg-opacity));
 }
 
 .bg-base-300 {
@@ -1802,10 +1750,6 @@ html {
   padding-bottom: 0.5rem;
 }
 
-.pb-3 {
-  padding-bottom: 0.75rem;
-}
-
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -1855,11 +1799,6 @@ html {
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -1896,14 +1835,14 @@ html {
   color: rgba(245, 245, 245, var(--tw-text-opacity));
 }
 
-.text-gray-300 {
-  --tw-text-opacity: 1;
-  color: rgba(212, 212, 212, var(--tw-text-opacity));
-}
-
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgba(115, 115, 115, var(--tw-text-opacity));
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgba(82, 82, 82, var(--tw-text-opacity));
 }
 
 .text-gray-700 {
@@ -1911,14 +1850,19 @@ html {
   color: rgba(64, 64, 64, var(--tw-text-opacity));
 }
 
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgba(38, 38, 38, var(--tw-text-opacity));
+}
+
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgba(23, 23, 23, var(--tw-text-opacity));
 }
 
-.text-yellow-100 {
+.text-red-700 {
   --tw-text-opacity: 1;
-  color: rgba(254, 243, 199, var(--tw-text-opacity));
+  color: rgba(190, 18, 60, var(--tw-text-opacity));
 }
 
 .text-neutral-content {
@@ -1974,6 +1918,23 @@ html {
   --tw-ring-shadow: 0 0 #0000;
 }
 
+.filter {
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.grayscale {
+  --tw-grayscale: grayscale(100%);
+}
+
 @media (min-width: 640px) {
 }
 
@@ -2024,22 +1985,6 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .lg\:card-side {
-    align-items: stretch;
-    flex-direction: row;
-  }
-
-  .lg\:card-side>figure {
-    height: 100%;
-    max-width: none;
-    width: auto;
-  }
-
-  .lg\:card-side>figure>* {
-    width: auto;
-    max-width: none;
-  }
-
   .lg\:block {
     display: block;
   }
@@ -2092,18 +2037,14 @@ html {
     padding-left: 0.75rem;
   }
 
-  .lg\:text-justify {
-    text-align: justify;
-  }
-
-  .lg\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .lg\:text-3xl {
