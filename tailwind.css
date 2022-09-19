@@ -705,10 +705,6 @@ html {
 }
 
 @-webkit-keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
   to {
     transform: rotate(1turn);
   }
@@ -1048,14 +1044,6 @@ html {
 }
 
 @-webkit-keyframes button-pop {
-  0% {
-    transform: scale(var(--btn-focus-scale,.95));
-  }
-
-  40% {
-    transform: scale(1.02);
-  }
-
   to {
     transform: scale(1);
   }
@@ -1087,14 +1075,6 @@ html {
 }
 
 @-webkit-keyframes checkmark {
-  0% {
-    background-position-y: 5px;
-  }
-
-  50% {
-    background-position-y: -2px;
-  }
-
   to {
     background-position-y: 0;
   }
@@ -1181,14 +1161,6 @@ html {
 }
 
 @-webkit-keyframes radiomark {
-  0% {
-    box-shadow: 0 0 0 12px hsl(var(--b1)) inset,0 0 0 12px hsl(var(--b1)) inset,var(--focus-shadow);
-  }
-
-  50% {
-    box-shadow: 0 0 0 3px hsl(var(--b1)) inset,0 0 0 3px hsl(var(--b1)) inset,var(--focus-shadow);
-  }
-
   to {
     box-shadow: 0 0 0 4px hsl(var(--b1)) inset,0 0 0 4px hsl(var(--b1)) inset,var(--focus-shadow);
   }
@@ -1563,6 +1535,11 @@ html {
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+}
+
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 228, 230, var(--tw-bg-opacity));
 }
 
 .bg-uggray {

@@ -1,0 +1,238 @@
+<!doctype html>
+<html data-theme="corporate">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+			rel="stylesheet">
+			<link href="//fonts.cdnfonts.com/css/dinpro-regular" rel="stylesheet">
+			<link href="/tailwind.css" rel="stylesheet">
+		</head>
+		<body class="font-dinpro">
+			<!-- Menu -->
+			<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+			<div
+				class="sticky top-0 z-50 w-full px-5 text-gray-700 bg-white shadow-md dark-mode:text-gray-200 dark-mode:bg-gray-800">
+				<div x-data="{ open: false }"
+					class="flex flex-col mx-auto max-w-screen-xl md:items-center md:justify-between md:flex-row ">
+					<div class="flex flex-row items-center justify-between p-4">
+						<img src="fg-logo.png" class="hidden h-10 pr-4 lg:block">
+						<img src="urc-logo.svg" class="hidden h-10 pr-2 lg:block">
+						<a href="#"
+						class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">URC</a>
+						<button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+						@click="open = !open">
+						<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+							<path x-show="!open" fill-rule="evenodd"
+								d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+							clip-rule="evenodd"></path>
+							<path x-show="open" fill-rule="evenodd"
+								d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+							clip-rule="evenodd"></path>
+						</svg>
+						</button>
+					</div>
+					<nav :class="{'flex': open, 'hidden': !open}"
+						class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+						<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="#organizers">Forum founders</a>
+						<a class="px-3 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="#schedule">Agenda</a>
+						<a class="px-3 py-2 mt-2 text-sm font-semibold bg-red-100 rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+						href="/">РУССКИЙ</a>
+						<a class="md:pl-10" target="_blank" href="https://visittyumen.ru"><img class="h-10"
+						src="visittyumen.svg"></a>
+					</nav>
+				</div>
+			</div>
+			<!-- End Menu -->
+			<!-- Hero -->
+			<div class="min-h-full hero" style="background-image: url('bg.jpg');">
+				<div class="hero-overlay filter grayscale bg-white bg-opacity-80"></div>
+				<div class="flex-col py-10 lg:py-20 hero-content lg:flex-row-reverse">
+					<div class="flex content-center justify-center w-2/5 space-x-2">
+						<div class="w-1/3 h-auto m-auto">
+							<img src="urc-logo.svg">
+						</div>
+						<div class="w-2/3 h-full m-auto">
+							<img src="fg-logo.png">
+						</div>
+					</div>
+					<!-- <img src="hero-pht.jpg" class="max-w-sm rounded-lg shadow-2xl"> -->
+					<div class="px-5">
+						<div class="mb-2 text-2xl text-gray-600">
+							Board of the Union of Russian Cities
+						</div>
+						<h1 class="mb-5 text-3xl font-bold text-gray-800 lg:text-5xl">
+					INTERNATIONAL FORUM <br>OF&nbsp;LOCAL GOVERNMENTS <br>"CITIES OF&nbsp;THE PRESENT AND&nbsp;FUTURE"
+						</h1>
+						<div class="mb-5 text-3xl font-bold text-red-700">
+							October 19-21, 2022 // Tyumen
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End  Hero-->
+			<!-- Announce -->
+			<div class="py-6">
+				<div class="px-5 mx-auto text-lg max-w-screen-xl">
+On October 20, 2022, the General Board of the Union of Russian Cities will be held in the city of Tyumen.
+<br><br>
+The main goal of this Board is to build additional contacts between Russian cities and colleagues from the cities of the CIS, EAEU, BRICS, SCO member countries for cooperation in the economic, scientific, technical, humanitarian and other fields.
+<br><br>
+Within the Board, the “International Forum of Local Governments: “Cities of the Present and Future” will be held with the support of the Alexander Gorchakov Public Diplomacy Fund, the Administration of Tyumen and the Government of the Tyumen region.
+<br><br>
+<strong>Dear colleagues, we invite you to take part in the Board of the Union of Russian Cities and the International Forum of Local Governments.</strong>
+				</div>
+			</div>
+			<!-- End Announce -->
+			<!-- Partners -->
+			<div class="py-10 mx-auto text-sm text-center max-w-screen-xl">
+				<div class="text-3xl font-bold text-center" id="organizers">Forum founders</div>
+				<div class="m-4 lg:flex space-x-4">
+					<div
+						class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
+						<img class="block h-56 pb-2" src="partners/urc.svg">
+						<p>Union of Russian Cities</p>
+					</div>
+					<div
+						class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
+						<img class="block pb-2" src="partners/fg-logo.png">
+						<p>Gorchakov Fund</p>
+					</div>
+					<div
+						class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
+						<img class="block h-56 pb-2" src="partners/Coat_of_arms_of_Tyumen_Oblast.png">
+						<p>Administration of the city of Tyumen</p>
+					</div>
+					<div
+						class="flex flex-col items-center justify-center flex-1 px-6 py-3 font-semibold rounded-md">
+						<img class="block h-56 pb-2" src="partners/tiymen.png">
+						<p>Government of the Tyumen region</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Partners -->
+<!-- Program -->
+<div class="py-5 mx-5 max-w-screen-xl mx-auto">
+	<div class="pb-10 text-5xl font-bold text-center" id="schedule">Agenda</div>
+	<div class="pb-5 text-3xl font-bold text-center">October 19 (Wednesday)</div>
+	<div class="pb-5 overflow-x-auto lg:text-xl">
+		<table class="table w-full table-zebra">
+			<tbody>
+				<tr>
+					<td class="text-right">All day </td>
+					<td class="font-bold">
+						Meeting at the airport of Tyumen / Transfer to the hotel / Check-in</td>
+				</tr>
+				<tr>
+					<td class="text-right">15:00-17:30</td>
+					<td class="font-bold">
+						EXCURSION AND VISIT OF CULTURAL OBJECTS OF THE CITY
+					</td>
+				</tr>
+				<tr>
+					<td class="text-right">19:00-21:00</td>
+					<td class="font-bold">Dinner</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="pb-5 text-3xl font-bold text-center">October 20 (Thursday)</div>
+	<div class="pb-5 overflow-x-auto lg:text-xl">
+		<table class="table w-full table-zebra">
+			<tbody>
+				<tr>
+					<td class="text-right">08:30-09:00</td>
+					<td class="font-bold">Registration of participants / Coffee break</td>
+				</tr>
+				<tr>
+					<td class="text-right">09:00-09:30</td>
+					<td class="font-bold">BOARD OF THE UNION OF RUSSIAN CITIES</td>
+				</tr>
+				<tr>
+					<td class="text-right">09:30-11:00</td>
+					<td class="font-bold">PLENARY SESSION "CITIES OF THE PRESENT AND FUTURE"</td>
+				</tr>
+				<tr>
+					<td class="text-right">11:00-12:00</td>
+					<td class="font-bold">VISIT XV TYUMEN DIGITAL EXHIBITION OF INFORMATION TECHNOLOGIES "INFOTECH-2022"</td>
+				</tr>
+				<tr>
+					<td class="text-right">12:00-13:30</td>
+					<td class="font-bold">Topic 1: "Digital innovative management of the city. Best Russian and International Practices"</td>
+				</tr>
+				<tr>
+					<td class="text-right">13:30-15:00</td>
+					<td class="font-bold">Lunch </td>
+				</tr>
+				<tr>
+					<td class="text-right">15:00-17:00</td>
+					<td class="font-bold">
+						Topic 2:<br> 
+"Sustainable operation and comprehensive modernization <br>of the housing infrastructure. Russian and international experience"<br><br>
+Topic 3: <br>
+"Energy efficiency as a progressive mechanism for modernization <br>and energy security in cities"<br><br>
+Topic 4: <br>
+"Import substitution and parallel imports, <br>both strategic and tactical the tasks of ensuring the functioning and urban development.<br> Russian and international experience"
+
+
+					</td>
+				<tr>
+					<td class="text-right">17:00-17:30</td>
+					<td class="font-bold">
+						FINAL PLENARY SESSION<br>
+                        Summarizing
+
+					</td>
+				</tr>
+				<tr>
+					<td class="text-right">18:30-21:00</td>
+					<td class="font-bold">Reception</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="pb-5 text-3xl font-bold text-center">October 21 (Friday)</div>
+	<div class="pb-5 overflow-x-auto lg:text-xl">
+		<table class="table w-full table-zebra">
+			<tbody>
+				<tr>
+					<td class="text-right">08:00-20:00</td>
+					<td class="font-bold">
+						Excursion to the Grigory Rasputin Museum / Lunch / Tobolsk city tour / back to the hotel
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="pb-5 text-3xl font-bold text-center">October 22 (Sunday)</div>
+	<div class="pb-5 overflow-x-auto lg:text-xl">
+		<table class="table w-full table-zebra">
+						<tbody>
+				<tr>
+					<td class="text-right">&nbsp;</td>
+					<td class="font-bold">Transfer to the airport </tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- End  Program-->
+<div class="divider"></div
+<!-- Footer -->
+<footer class="p-4 footer bg-base-300 text-base-content footer-center">
+	<div>
+		<p>INTERNATIONAL FORUM
+OF LOCAL GOVERNMENTS
+"CITIES OF THE PRESENT AND FUTURE"
+</p>
+	</div>
+</footer>
+<!-- End Footer -->
+</body>
+</html>
