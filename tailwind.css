@@ -1598,11 +1598,6 @@ html {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(253, 230, 138, 0));
 }
 
-.from-ugblue {
-  --tw-gradient-from: #00758F;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 117, 143, 0));
-}
-
 .from-uggray {
   --tw-gradient-from: #46505b;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(70, 80, 91, 0));
@@ -1627,10 +1622,6 @@ html {
 
 .to-ugblue {
   --tw-gradient-to: #00758F;
-}
-
-.to-uggray {
-  --tw-gradient-to: #46505b;
 }
 
 .to-ugred {
